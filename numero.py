@@ -2,8 +2,8 @@ import math
 
 class Numero:
     def __init__(self, val, err):
-        self.val = val
-        self.err = err
+        self.val = float(val)
+        self.err = float(err)
         self.decimals = None
         
     def __mul__(self, other):
@@ -59,4 +59,4 @@ class Numero:
         else:
             assert isinstance(self.decimals, int)
             text = '{:.' + str(self.decimals) + '} ± {:.' + str(self.decimals) + '}'
-            return text
+            return text.format(self.val, self.err)
